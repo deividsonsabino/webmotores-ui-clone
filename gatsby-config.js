@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `webmotores`,
+    description: `Clonando interface de usuario do site webmotors utilizando gatsby e tailwind `,
+    author: `@deivaotv`,
+    siteUrl: `https://github.com/deivaotv`,
   },
   plugins: [
     `gatsby-plugin-postcss`,
