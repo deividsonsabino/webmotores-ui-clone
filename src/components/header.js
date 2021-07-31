@@ -24,7 +24,7 @@ function Header({ siteTitle }) {
 
     return (
     <header>
-        <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto md:px-8 px-4">
+        <div className="flex flex-wrap items-center justify-between mx-auto md:px-6 px-4">
           <Link to="/">
             <p className="mt-5">{siteTitle}</p>
           </Link>
