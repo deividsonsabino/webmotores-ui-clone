@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `webmotores`,
+    title: `webmotores piracicaba`,
     description: `Clonando interface de usuario do site webmotors utilizando gatsby e tailwind `,
     author: `@deivaotv`,
     siteUrl: `https://github.com/deivaotv`,
