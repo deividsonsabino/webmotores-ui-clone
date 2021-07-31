@@ -1,5 +1,4 @@
 import React, {useState} from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import { FaRegHeart } from "@react-icons/all-files/fa/FaRegHeart"
 import { HiOutlineChatAlt2 } from "@react-icons/all-files/hi/HiOutlineChatAlt2"
@@ -8,6 +7,44 @@ import {IoIosNotificationsOutline} from "@react-icons/all-files/io/IoIosNotifica
 
 function Header({ siteTitle }) {
   const [isExpanded, toggleExpansion] = useState(false)
+  const navItems =
+    [
+      {
+        route: '/',
+        title: 'comprar'
+      },
+      {
+        route: '/',
+        title: 'Vender'
+      },
+      {
+        route: '/',
+        title: 'Serviços'
+      },
+      {
+        route: '/',
+        title: 'Ajuda'
+      },
+      {
+        route: '/',
+        title: 'Entrar',
+      },
+      {
+        route: '/',
+        name: 'FaRegHeart',
+        title: 'Favoritos',
+      },
+      {
+        route: '/',
+        name: 'HiOutlineChatAlt2',
+        title:'propostas'
+      },
+      {
+        route: '/',
+        name: 'IoIosNotificationsOutline',
+        title:'notificações'
+      },
+    ]
 
   const handleIcon = (icon) => {
     switch (icon.name) {
@@ -46,39 +83,7 @@ function Header({ siteTitle }) {
           <nav className={`${isExpanded ? `block` : `hidden`
             } md:block md:items-center w-full md:w-auto`}
           >
-            {[
-              {
-                route: `/`,
-                title: `comprar`
-              },
-              {
-                route: `/`,
-                title: `Vender`
-              },
-              {
-                route: `/`,
-                title: `Serviços`
-              },
-              {
-                route: `/`,
-                title: `Ajuda`
-              },
-              {
-                route: `/`,
-                title: `Entrar`,
-              },              {
-                route: `/`,
-                name: `FaRegHeart`
-              },              {
-                route: `/`,
-                name: `HiOutlineChatAlt2`
-              },              {
-                route: `/`,
-                name: `IoIosNotificationsOutline`
-              },
-              
-              
-            ].map((link) =>
+            {navItems.map((link) => (
               <Link
                 className="block mt-4 text-gray-400 text-sm no-underline md:inline-block md:mt-0 md:ml-6"
                 key={link.title}
@@ -86,19 +91,11 @@ function Header({ siteTitle }) {
               >
                 {handleIcon(link)} 
               </Link>
-            )}
+            ))}
           </nav>
         </div>
       </header >
     )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header
