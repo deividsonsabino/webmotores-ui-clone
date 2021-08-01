@@ -2,15 +2,57 @@ import React, {useState} from "react"
 import { Link } from "gatsby"
 //import { StaticImage } from "gatsby-plugin-image"
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+
+
+import  Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
   const [activeMenuCar, setActiveMenuCar] = useState(true)
-  const [activeMenuBike, setActiveMenuBike ] = useState(false)
+  const [activeMenuBike, setActiveMenuBike] = useState(false)
+  
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+  const responsiveHeader = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 6000, min: 3000 },
+      items: 1
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
   
   const menu = [
     {
@@ -55,6 +97,24 @@ const IndexPage = () => {
       city:"Piracicaba - SP"
     },
   ]
+
+  const offers = [
+    {
+      title:"Ofertas até R$30mil"
+    },
+    {
+      title:"Ofertas de R$30 mil a R$40 mil"
+    },
+    {
+      title:"Ofertas de R$40 mil a R$50 mil"
+    },
+    {
+      title:"Ofertas de R$50mil a R$60 mil"
+    },
+    {
+      title:"Ofertas de R$60 mil ou mais"
+    },
+  ]
   
   const handleMenu = (item) => {
     if (item.title === "Comprar Carros") {
@@ -74,12 +134,9 @@ const IndexPage = () => {
   <Layout>
     <Seo title="Home" />
       <Carousel
-        infiniteLoop={true}
-        autoPlay={true}
-        showThumbs={false}
-        showStatus={false}
-        showIndicators={false}
-    >
+        responsive={responsiveHeader}
+        containerClass="carousel-container carousel-justify-center"
+      >
       <div>
         <img src="https://tpc.googlesyndication.com/simgad/10817619479245791022?" alt="banner" />
       </div>
@@ -90,7 +147,7 @@ const IndexPage = () => {
         <img src="https://tpc.googlesyndication.com/simgad/1044702841224719890?" alt="banner" />
       </div>
     </Carousel>
-    <div className="shadow-lg w-auto max-w-4xl mx-auto md:px-8 b-20 bg-white transform -translate-y-3 rounded-sm">
+    <div className="shadow-lg w-auto max-w-4xl mx-auto md:px-8 b-20 bg-white transform -translate-y-8 rounded-sm">
       <div className="flex pt-6 pl-4 text-left">
           {menu.map(item => (
             <Link key={item.title} to={item.route ? item.route : "/"}>
@@ -128,7 +185,20 @@ const IndexPage = () => {
           ))}
         </div>
       </div>
-    </div>
+      </div>
+      <div className="w-auto max-w-4xl mx-auto b-20">
+        <p>Categorias</p>
+        <div>
+          <Carousel responsive={responsive}>
+            {offers.map(item => (
+              <div key={ item.title }className="bg-gray-700 mr-4 text-white p-10 rounded-lg h-full font-bold text-lg" style={{
+                background: "linear-gradient(135deg, rgba(6,6,6,1) 0%, rgba(121,13,9,1) 35%, rgba(250,26,0,1) 100%)" }}>
+                <p>{item.title}</p>
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      </div>
     </Layout>
   )
 }
