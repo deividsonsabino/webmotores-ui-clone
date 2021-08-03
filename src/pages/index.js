@@ -147,7 +147,7 @@ const IndexPage = () => {
         <img src="https://tpc.googlesyndication.com/simgad/1044702841224719890?" alt="banner" />
       </div>
     </Carousel>
-    <div className="shadow-lg w-auto max-w-4xl mx-auto md:px-8 b-20 bg-white transform -translate-y-8 rounded-sm">
+    <div className="shadow-lg w-auto max-w-4xl mx-auto md:px-8 b-20 bg-white transform -translate-y-8 rounded-sm bg-dark">
       <div className="flex pt-6 pl-4 text-left">
           {menu.map(item => (
             <Link key={item.title} to={item.route ? item.route : "/"}>
@@ -163,7 +163,7 @@ const IndexPage = () => {
               <svg fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" className="w-4 h-4"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </button>
           </span>
-          <input type="search" name="q" className="border-2 w-full md:w-9/12 h-8 py-2 text-sm text-white rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder={activeMenuCar ? "Digite marca ou modelo do carro" : "Digite marca ou modelo do moto"} autoComplete="off"></input>
+          <input type="search" className="border-2 w-full md:w-9/12 h-8 py-2 text-sm text-white rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder={activeMenuCar ? "Digite marca ou modelo do carro" : "Digite marca ou modelo do moto"} autoComplete="off"/>
           <button className="mt-2 md:mt-0 w-full md:w-auto md:ml-2 bg-red-600 text-white p-1 px-2 rounded-md shadow-2">ver ofertas</button>
         </div>
       </div>

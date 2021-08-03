@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div>
+      <div className="bg-gray-100">
         <main>{children}</main>
         <footer>
           <div className="flex flex-wrap md:justify-between items-center text-white bg-gray-700 text-xs">
