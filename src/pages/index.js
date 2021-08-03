@@ -147,27 +147,27 @@ const IndexPage = () => {
         <img src="https://tpc.googlesyndication.com/simgad/1044702841224719890?" alt="banner" />
       </div>
     </Carousel>
-    <div className="shadow-lg w-auto max-w-4xl mx-auto md:px-8 b-20 bg-white transform -translate-y-8 rounded-sm bg-dark">
-      <div className="flex pt-6 pl-4 text-left">
+    <div className="md:flex md:flex-wrap md:justify-star shadow-lg w-auto max-w-4xl mx-auto md:px-8 b-20 bg-white transform -translate-y-8 rounded-sm bg-dark">
+      <div className="flex md:pt-6 text-left ml-4">
           {menu.map(item => (
             <Link key={item.title} to={item.route ? item.route : "/"}>
-              <button onClick={() => handleMenu(item)} className={`${item.active ? 'border-b-2 border-red-600 font-bold text-dark' : 'text-gray-400'} mr-8 text-md my-8`} value={item.title}>{item.title}</button>
+              <button onClick={() => handleMenu(item)} className={`${item.active ? 'border-b-2 border-red-600 font-bold text-dark text-xs md:text-md' : 'text-gray-400'} mr-4 md:mr-8 text-xs md:text-md my-8`} value={item.title}>{item.title}</button>
             </Link>
         ))}
 
       </div>
-      <div className="mx-4">
-        <div className="relative text-gray-600 focus-within:text-gray-400">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-2 pb-8 md:pb-0">
+      <div className="md:mx-4 md:w-full mr-6">
+        <div className="md:mx-0 mx-4 md:flex md:items-center md:justify-start relative text-gray-600 focus-within:text-gray-400">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-2 pb-12 md:pb-0">
             <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
               <svg fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" className="w-4 h-4"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </button>
           </span>
-          <input type="search" className="border-2 w-full md:w-9/12 h-8 py-2 text-sm text-white rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder={activeMenuCar ? "Digite marca ou modelo do carro" : "Digite marca ou modelo do moto"} autoComplete="off"/>
-          <button className="mt-2 md:mt-0 w-full md:w-auto md:ml-2 bg-red-600 text-white p-1 px-2 rounded-md shadow-2">ver ofertas</button>
+          <input type="search" className="border-2 w-full md:w-9/12 h-12 md:h-8 py-2 text-sm text-white rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder={activeMenuCar ? "Digite marca ou modelo do carro" : "Digite marca ou modelo do moto"} autoComplete="off"/>
+          <button className="h-12 md:h-8 mt-2 md:mt-0 w-full md:w-auto md:ml-2 bg-red-600 text-white p-1 md:px-8 sm:px-6 rounded-md shadow-2">ver ofertas</button>
         </div>
       </div>
-      <div className="m-4 w-full">
+      <div className="m-4">
         <p className="text-center md:text-left m-0 text-gray-500 text-sm font-bold">Suas últimas buscas</p>
         <div className="block md:flex">
           {last.map(item => (
@@ -191,7 +191,7 @@ const IndexPage = () => {
         <div>
           <Carousel responsive={responsive}>
             {offers.map(item => (
-              <div key={ item.title }className="bg-gray-700 mr-4 text-white p-10 rounded-lg h-full font-bold text-lg" style={{
+              <div key={ item.title } className="bg-gray-700 mr-4 p-10 text-white rounded-lg h-full font-bold text-lg" style={{
                 background: "linear-gradient(135deg, rgba(6,6,6,1) 0%, rgba(121,13,9,1) 35%, rgba(250,26,0,1) 100%)" }}>
                 <p>{item.title}</p>
               </div>
