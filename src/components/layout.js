@@ -13,6 +13,7 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -59,41 +60,45 @@ const Layout = ({ children }) => {
   ]
 
   return (
+    
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div className="bg-gray-100">
         <main>{children}</main>
-        <footer>
-          <div className="flex flex-wrap md:justify-between items-center text-white bg-gray-700 text-xs">
-            <div className="m-4">
-              <p className="m-0 font-bold text-sm">Comprar</p>
-              {textFooter.map(item => (
-                item.comprar.map(item => (
-                  <p className="my-1">{item.texto}</p>
-                ))
-              ))}
-            </div>
-            <div className="m-4">
-              <p className="m-0 font-bold text-sm">Vender</p>
-              {textFooter.map(item => (
-                item.vender.map(item => (
-                  <p className="my-1">{item.texto}</p>
-                ))
-              ))}
-            </div>
-            <div className="m-4">
-              <p className="m-0 font-bold text-sm">Serviços</p>
-              {textFooter.map(item => (
-                item.servicos.map(item => (
-                  <p className="my-1">{item.texto}</p>
-                ))
-              ))}
-            </div>
-          </div>
-          <div className="bg-gray-600 text-white text-xs p-3">
-            <p className="m-0">©2021 Webmotores Piracicaba S.A Todos os direitos reservados</p>
-          </div>
-        </footer>
+        {children[0].props.title !== "Estoque" &&
+                  <footer>
+                  <div className="flex flex-wrap md:justify-between items-center text-white bg-gray-700 text-xs">
+                    <div className="m-4">
+                      <p className="m-0 font-bold text-sm">Comprar</p>
+                      {textFooter.map(item => (
+                        item.comprar.map(item => (
+                          <p className="my-1">{item.texto}</p>
+                        ))
+                      ))}
+                    </div>
+                    <div className="m-4">
+                      <p className="m-0 font-bold text-sm">Vender</p>
+                      {textFooter.map(item => (
+                        item.vender.map(item => (
+                          <p className="my-1">{item.texto}</p>
+                        ))
+                      ))}
+                    </div>
+                    <div className="m-4">
+                      <p className="m-0 font-bold text-sm">Serviços</p>
+                      {textFooter.map(item => (
+                        item.servicos.map(item => (
+                          <p className="my-1">{item.texto}</p>
+                        ))
+                      ))}
+                    </div>
+                  </div>
+                  <div className="bg-gray-600 text-white text-xs p-3">
+                    <p className="m-0">©2021 Webmotores Piracicaba S.A Todos os direitos reservados</p>
+                  </div>
+                </footer>
+        }
+
       </div>
     </>
   )
